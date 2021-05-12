@@ -5,7 +5,7 @@ Florindo López Delgado
 
 María Galindo Paredes
 
-Hola booon diia soy Jaime
+Hola booon diia soy Jaime Cortes
 
 Mi nombre es Paco, hola valles
 
@@ -13,6 +13,6 @@ Pablo ortega revilla ey
 
 Carlos Conde Polanco
 
-Alberto Vallés Antolin
+Alberto Vallés Antolin 
 
 Rocio Arribas Gonzalez
