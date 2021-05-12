@@ -2,6 +2,10 @@
 practica-git
 
 
+Me gano manías por mi megalomanía (Ricardo)
+ 
+
+
 María Galindo Paredes
 
 
@@ -18,4 +22,5 @@ Carlos Conde Polanco
 Alberto Vallés Antolin
 
 Rocio Arribas Gonzalez
+
 
