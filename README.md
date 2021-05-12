@@ -22,5 +22,3 @@ Carlos Conde Polanco
 Alberto Vallés Antolin
 
 Rocio Arribas Gonzalez
-
-Ricardoooooooooooooooooooooooooooooooooooooooooooooooooooo
