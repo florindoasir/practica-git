@@ -1,6 +1,7 @@
 # practica-git
 practica-git
 
+Florindo López Delgado
 
 María Galindo Paredes
 
