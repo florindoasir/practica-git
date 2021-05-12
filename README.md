@@ -1,6 +1,9 @@
 # practica-git
 practica-git
 
+RodriguezMiguel
+Miguel Rodríguez Cartón
+
 
 María Galindo Paredes
 
@@ -18,4 +21,5 @@ Carlos Conde Polanco
 Alberto Vallés Antolin
 
 Rocio Arribas Gonzalez
+
 
