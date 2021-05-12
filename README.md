@@ -5,10 +5,7 @@ Florindo López Delgado
 
 María Galindo Paredes
 
-
-
 Hola booon diia soy Jaime
-
 
 Mi nombre es Paco, hola valles
 
