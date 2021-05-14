@@ -11,12 +11,12 @@
 
   <body>
     <div id="app" class="container">
-      <div class="card text-white bg-info" style="width: 18rem;">
-        <img class="card-img-top" src="moreconflicts" alt="Card image cap">
+      <div class="card text-white bg-info" style="width: 18rem;" >
+        <img class="card-img-top" :src="jsonObject2.image" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some conflicts</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">CHISTES DE CHUCK NORRIS</h5>
+          <p class="card-text">{{jsonObject.value.joke}}</p>
+          <a href="javascript:document.location.reload();" class="btn btn-primary">REFRESH</a>
         </div>
       </div>
     </div>
@@ -30,13 +30,18 @@
       const App = new Vue({
         el: '#app',
         data: {
-          jsonObject: {}
+          jsonObject: {},
+          jsonObject2: {}
         },
         methods: {
             init() {
-              fetch("https://pokeapi.co/api/v2/pokemon/1/")
+              fetch("http://api.icndb.com/jokes/random")
               .then(response => response.json())
               .then(data => (this.jsonObject = data));
+
+              fetch("https://yesno.wtf/api")
+              .then(response => response.json())
+              .then(data => (this.jsonObject2 = data));
             }
         },
         mounted(){
