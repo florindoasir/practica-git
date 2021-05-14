@@ -1,0 +1,18 @@
+ul{
+    color: crimson;
+}
+ol{
+    font-size: 20px; color: blue;
+}
+td{
+    color: darkgreen; font-size: 30px;
+}
+html{
+    background-color: darkgrey;
+}
+#pestudios{
+    color: darkmagenta; font-size: 25px;
+}
+p.tabla1{
+    color: greenyellow; font-size: 25px;
+}
