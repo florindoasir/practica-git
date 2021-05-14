@@ -12,7 +12,7 @@
   <body>
     <div id="app" class="container">
       <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" :src="jsonObject2.image" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Chiste nº {{jsonObject.id}}</h5>
           <p class="card-text">{{jsonObject.setup}}
@@ -34,13 +34,18 @@
       const App = new Vue({
         el: '#app',
         data: {
-          jsonObject: {}
+          jsonObject: {},
+          jsonObject2: {}
         },
         methods: {
             init() {
               fetch("https://official-joke-api.appspot.com/random_joke")
               .then(response => response.json())
               .then(data => (this.jsonObject = data));
+
+              fetch("https://yesno.wtf/api")
+              .then(response => response.json())
+              .then(data => (this.jsonObject2 = data));
             }
         },
         mounted(){
