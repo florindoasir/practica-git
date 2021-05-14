@@ -12,15 +12,14 @@
   <body>
     <div id="app" class="container">
       <div class="card text-white bg-info" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" :src="jsonObject2.image" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some conflicts</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">{{jsonObject.value.id}}</h5>
+          <p class="card-text">{{jsonObject.value.joke}}</p>
+          <a href="#" @click="init" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     </div>
-
     <script>
       // https://github.com/public-apis/public-apis#test-data
       // https://github.com/public-apis/public-apis#games--comics
@@ -30,14 +29,19 @@
       const App = new Vue({
         el: '#app',
         data: {
-          jsonObject: {}
+          jsonObject: {},
+          jsonObject2: {}
         },
         methods: {
             init() {
-              fetch("https://pokeapi.co/api/v2/pokemon/1/")
+              fetch("http://api.icndb.com/jokes/random")
               .then(response => response.json())
               .then(data => (this.jsonObject = data));
-            }
+
+              fetch("https://yesno.wtf/api")
+              .then(response => response.json())
+              .then(data => (this.jsonObject2 = data));
+            },
         },
         mounted(){
             this.init()
