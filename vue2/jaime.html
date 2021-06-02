@@ -41,7 +41,40 @@
           </div>
         </div>
       </div>
+      <div v-if="episodes" class="row">
+        <div border="3px solid black" class="col-sm-6 card text-white bg-secondary" v-for="episode in episodes">
+            <p>Titulo:{{episode.title}}</p><br>
+            <p>Temporada:{{episode.season}}</p><br>
+            <p>Fecha de salida:{{episode.air_date}}</p><br>
+            <p>id de episodio:{{episode.episode_id}}</p><br>
+        </div>
+      </div>
+      <div v-if="characters" class="row">
+        <div border="3px solid black" class="col-sm-6 card text-white bg-success" v-for="character in characters">
+            <p>Personaje:{{character.name}}</p><br>
+            <p>Cumpleaños:{{character.birthday}}</p><br>
+            <p>Estado:{{character.status}}</p><br>
+            <p>Apodo{{character.nickname}}</p><br>
+        </div>
+      </div>
+      <div v-if="quotes" class="row">
+        <div border="3" class="col-sm-6 card text-white bg-dark" v-for="quote in quotes">
+            <p>ID:{{quote.quote_id}}</p><br>
+            <p>Frase:{{quote.quote}}</p><br>
+            <p>Autor:{{quote.author}}</p><br>
+            <p>Serie:{{quote.series}}</p><br>
+        </div>
+      </div>
+      <div v-if="deaths" class="row">
+        <div border="3" class="col-sm-6 card text-white bg-danger" v-for="death in deaths">
+            <p>Responsable:{{death.responsible}}</p><br>
+            <p>Causa:{{death.cause}}</p><br>
+            <p>Episodio:{{death.episode}}</p><br>
+            <p>Temporada:{{death.season}}</p><br>
+        </div>
+      </div>
     </div>
+
     <script>
       // https://github.com/public-apis/public-apis#test-data
       // https://github.com/public-apis/public-apis#games--comics
