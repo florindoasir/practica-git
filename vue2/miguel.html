@@ -54,7 +54,9 @@
         data: {
           jsonObject: {},
           episodes: {},
-          characters: {}
+          characters: {},
+          quotes: {},
+          deaths: {}
         },
         methods: {
             init() {
@@ -72,10 +74,17 @@
               .then(response => response.json())
               .then(data => (this.characters = data));
             },
-            soyelconflicto(url){
+
+            loadQuotes(url){
               fetch(url)
               .then(response => response.json())
-              .then(data => (this.characters = data));
+              .then(data => (this.quotes = data));
+            },
+            loadDeaths(url){
+              fetch(url)
+              .then(response => response.json())
+              .then(data => (this.deaths = data));
+
             }
 
         },
