@@ -30,22 +30,30 @@
           <div class="card-body">
             <h5 class="card-title">quotes</h5>
             <p class="card-text"></p>
-            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+            <a href="#"  @click='loadQuotes(jsonObject.quotes)' class="btn btn-primary">Go somewhere</a>
           </div>
-            </div>
+          <div v-if="episodes" class="row"></div>
+        </div>
         <div class="col-sm-3 card text-white bg-info" >
           <div class="card-body">
             <h5 class="card-title">deaths</h5>
             <p class="card-text"></p>
-            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='loadDeaths(jsonObject.deaths)' class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </div>
-      <div class="conflict">
-        Conflict
+      <div v-if="episodes" class="row">
+                episodes: {{episodes}} <br> 
       </div>
-    </div>
- 
+      <div v-if="characters" class="row">
+        characters: {{characters}} <br>
+      </div>
+      <div v-if="quotes" class="row">
+        quotes: {{quotes}} <br>
+      </div>
+    </div> 
+    
+
     <script>
       // https://github.com/public-apis/public-apis#test-data
       // https://github.com/public-apis/public-apis#games--comics
@@ -57,7 +65,9 @@
         data: {
           jsonObject: {},
           episodes: null,
-          characters: null
+          characters: null,
+          quotes: null,
+          deaths: null
         },
         methods: {
             init() {
@@ -71,6 +81,16 @@
               .then(data => (this.episodes = data));
             },
             loadCharacters(url){
+              fetch(url)
+              .then(response => response.json())
+              .then(data => (this.characters = data));
+            },
+            loadQuotes(url){
+              fetch(url)
+              .then(response => response.json())
+              .then(data => (this.characters = data));
+            },
+            loadDeaths(url){
               fetch(url)
               .then(response => response.json())
               .then(data => (this.characters = data));
