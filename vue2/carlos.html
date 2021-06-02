@@ -41,7 +41,46 @@
           </div>
         </div>
       </div>
+      
+      <div class="row">
+        <div v-if="characters">
+          <div v-for="character in characters">
+            <ul>
+              <li>{{character.name}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div v-if="episodes">
+          <div v-for="episode in episodes">
+            <ul>
+              <li>{{episode.title}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div v-if="quotes">
+          <div v-for="quote in quotes">
+            <ul>
+              <li>{{quote.quote}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div v-if="deaths">
+          <div v-for="death in deaths">
+            <ul>
+              <li>{{death.death}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+
 
     <script>
       // https://github.com/public-apis/public-apis#test-data
@@ -65,21 +104,37 @@
               .then(data => (this.jsonObject = data));
             },
             loadEpisodes(url){
+              this.characters=null;
+              this.episodes=null;
+              this.quotes=null;
+              this.deaths=null;
               fetch(url)
               .then(response => response.json())
               .then(data => (this.episodes = data));
             },
             loadCharacters(url){
+              this.characters=null;
+              this.episodes=null;
+              this.quotes=null;
+              this.deaths=null;
               fetch(url)
               .then(response => response.json())
               .then(data => (this.characters = data));
             },
             loadQuotes(url){
+              this.characters=null;
+              this.episodes=null;
+              this.quotes=null;
+              this.deaths=null;
               fetch(url)
               .then(response => response.json())
               .then(data => (this.quotes = data));
             },
             loadDeaths(url){
+              this.characters=null;
+              this.episodes=null;
+              this.quotes=null;
+              this.deaths=null;
               fetch(url)
               .then(response => response.json())
               .then(data => (this.deaths = data));
