@@ -30,7 +30,7 @@
           <div class="card-body">
             <h5 class="card-title">quotes</h5>
             <p class="card-text"></p>
-            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='soyelconflicto(jsonObject.episodes)' class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
         <div class="col-sm-3 card text-white bg-info" >
@@ -74,6 +74,7 @@
               .then(response => response.json())
               .then(data => (this.characters = data));
             },
+
             loadQuotes(url){
               fetch(url)
               .then(response => response.json())
@@ -83,6 +84,7 @@
               fetch(url)
               .then(response => response.json())
               .then(data => (this.deaths = data));
+
             }
 
         },
