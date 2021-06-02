@@ -17,27 +17,34 @@
             <h5 class="card-title">Characters</h5>
             <p class="card-text"></p>
             <a href="#" @click='loadCharacters(jsonObject.characters)' class="btn btn-primary">Go somewhere</a>
+            <div v-for="char in jsonObject.characters">
+              {{char.name}}
+            </div>
+            
           </div>
         </div>
         <div class="col-sm-3 card text-white bg-info" >
           <div class="card-body">
-            <h5 class="card-title">episodes</h5>
+            <h5 class="card-title">Episodes</h5>
             <p class="card-text"></p>
             <a href="#" @click='loadEpisodes(jsonObject.episodes)' class="btn btn-primary">Go somewhere</a>
+            {{episodes}}
           </div>
         </div>
         <div class="col-sm-3 card text-white bg-info" >
           <div class="card-body">
-            <h5 class="card-title">quotes</h5>
+            <h5 class="card-title">Quotes</h5>
             <p class="card-text"></p>
-            <a href="#" @click='soyelconflicto(jsonObject.episodes)' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='loadQuotes(jsonObject.quotes)' class="btn btn-primary">Go somewhere</a>
+            {{quotes}}
           </div>
         </div>
         <div class="col-sm-3 card text-white bg-info" >
           <div class="card-body">
-            <h5 class="card-title">deaths</h5>
+            <h5 class="card-title">Deaths</h5>
             <p class="card-text"></p>
-            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='loadDeaths(jsonObject.deaths)' class="btn btn-primary">Go somewhere</a>
+            {{deaths}}
           </div>
         </div>
       </div>
@@ -53,10 +60,10 @@
         el: '#app',
         data: {
           jsonObject: {},
-          episodes: {},
-          characters: {},
-          quotes: {},
-          deaths: {}
+          episodes: null,
+          characters: null,
+          quotes: null,
+          deaths: null
         },
         methods: {
             init() {
