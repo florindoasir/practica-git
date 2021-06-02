@@ -73,7 +73,19 @@
             <h4>Series:</h4>
             <p>{{quote.series}}</p>
           </div>
-      </div>
+        </div>
+        <div v-if="deaths">
+          <div v-for="death in deaths">
+            <h2>Muerte:</h2>
+            <p>{{death.death}}</p>
+            <h4>Autor:</h4>
+            <p>{{death.cause}}</p>
+            <h4>Temporada:</h4>
+            <p>{{death.season}}</p>
+            <h4>Episodios:</h4>
+            <p>{{death.episode}}</p>
+          </div>
+        </div>
       </div>
     </div>
 
