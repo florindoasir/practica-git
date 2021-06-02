@@ -30,17 +30,22 @@
           <div class="card-body">
             <h5 class="card-title">quotes</h5>
             <p class="card-text"></p>
-            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='loadquotes(jsonObject.quotes)' class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
         <div class="col-sm-3 card text-white bg-info" >
           <div class="card-body">
             <h5 class="card-title">deaths</h5>
             <p class="card-text"></p>
-            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='loaddeaths(jsonObject.deaths)' class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
+
       </div>
+      <div class="conflict">
+        Conflict
+      </div>
+
     </div>
 
     <script>
@@ -54,7 +59,9 @@
         data: {
           jsonObject: {},
           episodes: {},
-          characters: {}
+          characters: {},
+          quotes: {},
+          deaths: {}
         },
         methods: {
             init() {
@@ -71,6 +78,16 @@
               fetch(url)
               .then(response => response.json())
               .then(data => (this.characters = data));
+            },
+            loadquotes(url){
+              fetch(url)
+              .then(response => response.json())
+              .then(data => (this.quotes = data));
+            },
+            loaddeaths(url){
+              fetch(url)
+              .then(response => response.json())
+              .then(data => (this.deaths = data));
             }
 
         },
