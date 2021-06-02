@@ -30,14 +30,14 @@
           <div class="card-body">
             <h5 class="card-title">quotes</h5>
             <p class="card-text"></p>
-            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='loadquotes(jsonObject.quotes)' class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
         <div class="col-sm-3 card text-white bg-info" >
           <div class="card-body">
             <h5 class="card-title">deaths</h5>
             <p class="card-text"></p>
-            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='loaddeaths(jsonObject.deaths)'class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </div>
@@ -52,9 +52,10 @@
       const App = new Vue({
         el: '#app',
         data: {
-          jsonObject: {},
-          episodes: {},
-          characters: {}
+          jsonObject: null,
+          episodes: null,
+          characters: null,
+          quotes:null,
         },
         methods: {
             init() {
@@ -71,6 +72,12 @@
               fetch(url)
               .then(response => response.json())
               .then(data => (this.characters = data));
+            
+            },
+            loadquotes(url){
+              fetch(url)
+              .then(response => response.json())
+              .then(data => (this.quotes = data));
             }
 
         },
