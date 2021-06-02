@@ -30,19 +30,18 @@
           <div class="card-body">
             <h5 class="card-title">quotes</h5>
             <p class="card-text"></p>
-            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='loadQuotes' class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
         <div class="col-sm-3 card text-white bg-info" >
           <div class="card-body">
             <h5 class="card-title">deaths</h5>
             <p class="card-text"></p>
-            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='loadDeaths' class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </div>
     </div>
-
     <script>
       // https://github.com/public-apis/public-apis#test-data
       // https://github.com/public-apis/public-apis#games--comics
@@ -53,8 +52,10 @@
         el: '#app',
         data: {
           jsonObject: {},
-          episodes: {},
-          characters: {}
+          episodes: null,
+          characters: null,
+          quotes: null,
+          deaths: null
         },
         methods: {
             init() {
@@ -68,6 +69,16 @@
               .then(data => (this.episodes = data));
             },
             loadCharacters(url){
+              fetch(url)
+              .then(response => response.json())
+              .then(data => (this.characters = data));
+            },
+            loadQuotes(url){
+              fetch(url)
+              .then(response => response.json())
+              .then(data => (this.characters = data));
+            },
+            loadDeaths(url){
               fetch(url)
               .then(response => response.json())
               .then(data => (this.characters = data));
