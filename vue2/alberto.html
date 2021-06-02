@@ -11,13 +11,34 @@
 
   <body>
     <div id="app" class="container">
-      <div class="card text-white bg-info" style="width: 18rem;">
-        <img class="card-img-top" src="moreconflicts" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some conflicts</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="row">
+        <div class="col-sm-3 card text-white bg-info" >
+          <div class="card-body">
+            <h5 class="card-title">Characters</h5>
+            <p class="card-text"></p>
+            <a href="#" @click='loadCharacters(jsonObject.characters)' class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
+        <div class="col-sm-3 card text-white bg-info" >
+          <div class="card-body">
+            <h5 class="card-title">episodes</h5>
+            <p class="card-text"></p>
+            <a href="#" @click='loadEpisodes(jsonObject.episodes)' class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div class="col-sm-3 card text-white bg-info" >
+          <div class="card-body">
+            <h5 class="card-title">quotes</h5>
+            <p class="card-text"></p>
+            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div class="col-sm-3 card text-white bg-info" >
+          <div class="card-body">
+            <h5 class="card-title">deaths</h5>
+            <p class="card-text"></p>
+            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
       </div>
     </div>
@@ -31,14 +52,27 @@
       const App = new Vue({
         el: '#app',
         data: {
-          jsonObject: {}
+          jsonObject: {},
+          episodes: {},
+          characters: {}
         },
         methods: {
             init() {
-              fetch("https://pokeapi.co/api/v2/pokemon/1/")
+              fetch("https://www.breakingbadapi.com/api/")
               .then(response => response.json())
               .then(data => (this.jsonObject = data));
+            },
+            loadEpisodes(url){
+              fetch(url)
+              .then(response => response.json())
+              .then(data => (this.episodes = data));
+            },
+            loadCharacters(url){
+              fetch(url)
+              .then(response => response.json())
+              .then(data => (this.characters = data));
             }
+
         },
         mounted(){
             this.init()
