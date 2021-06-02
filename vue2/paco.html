@@ -30,16 +30,19 @@
           <div class="card-body">
             <h5 class="card-title">quotes</h5>
             <p class="card-text"></p>
-            <a href="#" @click='soyelconflicto(jsonObject.episodes)' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='loadQuotes(jsonObject.quotes)' class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
         <div class="col-sm-3 card text-white bg-info" >
           <div class="card-body">
             <h5 class="card-title">deaths</h5>
             <p class="card-text"></p>
-            <a href="#" @click='init' class="btn btn-primary">Go somewhere</a>
+            <a href="#" @click='loadDeaths' class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
+      </div>
+      <div>
+        
       </div>
     </div>
 
@@ -53,8 +56,10 @@
         el: '#app',
         data: {
           jsonObject: {},
-          episodes: {},
-          characters: {}
+          episodes: null,
+          characters: null,
+          quotes: null,
+          deaths: null
         },
         methods: {
             init() {
@@ -72,10 +77,15 @@
               .then(response => response.json())
               .then(data => (this.characters = data));
             },
-            soyelconflicto(url){
+            loadQuotes(url){
               fetch(url)
               .then(response => response.json())
-              .then(data => (this.characters = data));
+              .then(data => (this.quotes = data));
+            },
+            loadDeaths(url){
+              fetch(url)
+              .then(response => response.json())
+              .then(data => (this.deaths = data));
             }
 
         },
